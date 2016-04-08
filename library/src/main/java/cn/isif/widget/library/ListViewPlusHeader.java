@@ -135,7 +135,7 @@ public class ListViewPlusHeader extends LinearLayout {
                 timeView.setVisibility(View.GONE);
                 break;
             case STATE_SEARCH_FAIL:
-                hintView.setText("无搜索结果");
+                hintView.setText("not found");
                 timeView.setVisibility(View.GONE);
                 break;
 
