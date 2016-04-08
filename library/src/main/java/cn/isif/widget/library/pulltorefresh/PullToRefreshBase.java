@@ -33,7 +33,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
 import cn.isif.widget.library.R;
 import cn.isif.widget.library.pulltorefresh.internal.FlipLoadingLayout;
 import cn.isif.widget.library.pulltorefresh.internal.LoadingLayout;
