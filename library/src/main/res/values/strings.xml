@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Library</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">释放以更新…</string>
+    <string name="xlistview_header_hint_loading">正在加载…</string>
+    <string name="xlistview_header_last_time">上次更新：%1$s</string>
+    <string name="xlistview_header_hint_success">更新成功</string>
+    <string name="xlistview_header_hint_fail">更新失败</string>
+    <string name="xlistview_footer_hint_normal">加载更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="xlistview_footer_hint_loading">加载中…</string>
+    <string name="xlistview_footer_hint_no_more">没有更多数据</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+
+    <dimen name="navigate_height">48dip</dimen>
+    <dimen name="navigate_height_">-48dip</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_micro">12sp</dimen>
+
+    <!-- 个人中心ListView Item顶部、底部的距离 -->
+    <dimen name="person_lv_padding_top">12dip</dimen>
+    <dimen name="person_lv_padding_bottom">12dip</dimen>
+    <!-- 控件上下的间距 大约  3dip左右 -->
+    <dimen name="widget_margin_up_down">3dip</dimen>
+</resources>
