@@ -33,29 +33,17 @@ def gitUrl = 'https://github.com/yieryi/ListViewPlus.git'
 group = 'cn.isif.widget.library'
 version = '1.0.2'
 
-//javadoc source
+//配置source jar的生成
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
-
-//task javadoc(type: Javadoc) {
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//}
-//
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-
+//source jar打包
 artifacts {
-//    archives javadocJar
     archives sourcesJar
 }
-
+//javadoc 打包配置
 android.libraryVariants.all { variant ->
-
     task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
         title = "Documentation for Android $android.defaultConfig.versionName b$android.defaultConfig.versionCode"
         destinationDir = new File("${project.getProjectDir()}/doc/compiled/", variant.baseName)
@@ -74,7 +62,7 @@ android.libraryVariants.all { variant ->
     }
 }
 
-
+//读取本地用户信息配置
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
@@ -91,7 +79,7 @@ bintray {
     }
 }
 
-// 根节点添加
+//bintray配置
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -121,8 +109,4 @@ install {
             }
         }
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
 }
