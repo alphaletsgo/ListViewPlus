@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.1"
+        versionCode 2
+        versionName "1.0.2"
     }
     buildTypes {
         release {
@@ -31,14 +31,14 @@ def siteUrl = 'https://github.com/yieryi/ListViewPlus'
 def gitUrl = 'https://github.com/yieryi/ListViewPlus.git'
 
 group = 'cn.isif.widget.library'
-version = '1.0.1'
+version = '1.0.2'
 
 //javadoc source
-//task sourcesJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier = 'sources'
-//}
-//
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
 //task javadoc(type: Javadoc) {
 //    source = android.sourceSets.main.java.srcDirs
 //    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
@@ -48,11 +48,32 @@ version = '1.0.1'
 //    classifier = 'javadoc'
 //    from javadoc.destinationDir
 //}
-//
-//artifacts {
+
+artifacts {
 //    archives javadocJar
-//    archives sourcesJar
-//}
+    archives sourcesJar
+}
+
+android.libraryVariants.all { variant ->
+
+    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+        title = "Documentation for Android $android.defaultConfig.versionName b$android.defaultConfig.versionCode"
+        destinationDir = new File("${project.getProjectDir()}/doc/compiled/", variant.baseName)
+        source = variant.javaCompile.source
+
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+
+        description "Generates Javadoc for $variant.name."
+
+        options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PRIVATE
+        options.links("http://docs.oracle.com/javase/7/docs/api/");
+        options.links("http://developer.android.com/reference/reference/");
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+    }
+}
+
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
