@@ -1,6 +1,9 @@
-###  This is My Project
+### Project Introduce
 
-### use
+### About
+Include ListViewPlus、PullToRefresh
+
+### Use
 ```xml
-compile 'cn.isif.widget.library:library:1.0.1'
+compile 'cn.isif.widget.library:library:1.0.2'
 ```
